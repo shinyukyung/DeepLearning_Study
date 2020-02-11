@@ -22,7 +22,6 @@ class ModelTraining(object):
         valid_acc_collect       =   []
 
         saver = tf.train.Saver()
-
         with tf.Session() as sess:
             sess.run(tf.global_variables_initializer())
             iteration = 100
