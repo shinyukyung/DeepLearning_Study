@@ -16,16 +16,6 @@ train   =   pd.read_csv("input/train.csv")
 test    =   pd.read_csv("input/test.csv")
 data    =   []
 
-Input           = x_train
-Label           = y_train
-Val_Input       = valid_x
-Val_Label       = valid_y
-Epoch           = 1
-Train_Collect   = 50
-Train_Print     = Train_Collect * 2
-Learning_Rate   = 0.001
-Batch_Size      = 128
-
 for f in train.columns:
     # role 정의
     if f == 'target':
@@ -219,6 +209,16 @@ v = test.drop(['id'], axis=1).columns[f(selector.get_support())]
 test = test.drop(['id'] , axis=1)
 
 x_train, y_train, valid_x, valid_y = utils.split_valid_test_data(train)
+
+Input           = x_train
+Label           = y_train
+Val_Input       = valid_x
+Val_Label       = valid_y
+Epoch           = 1
+Train_Collect   = 50
+Train_Print     = Train_Collect * 2
+Learning_Rate   = 0.001
+Batch_Size      = 128
 
 model = utils.build_neural_network(x_train)
 traing_model = ModelTraining(model, Input, Label, Val_Input, Val_Label, Epoch, Train_Collect, Train_Print, Learning_Rate, Batch_Size) 
